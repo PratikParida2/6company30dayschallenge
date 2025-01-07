@@ -1,0 +1,17 @@
+class Solution {
+    public String convertToTitle(int n) 
+    {
+        StringBuffer ans=new StringBuffer();
+        while(n!=0)
+        {
+            n--;
+            int rem=n%26;
+            int num=65+rem;
+            char c=(char)num;
+            ans=ans.append(c);
+            n=n/26;
+        }
+        ans.reverse();
+        return ans.toString();
+    }
+}
