@@ -1,0 +1,32 @@
+class Solution {
+    public int longestMountain(int[] arr) 
+    {
+        int max=0;
+        for(int i=1;i<=arr.length-2;i++)
+        {
+            if(arr[i]>arr[i-1] && arr[i]>arr[i+1])//Means It Is A Peak Element
+            {
+                int j=i-1;
+                int curr=arr[i];
+                int count=1;
+                while(j>=0 && curr>arr[j])
+                {
+                    count++;
+                    curr=arr[j];
+                    j--;
+                   
+                }
+                int k=i+1;
+                curr=arr[i];
+                while(k<arr.length && curr>arr[k])
+                {
+                    count++;
+                    curr=arr[k];
+                    k++;
+                }
+                max=Math.max(max,count);
+            }
+        }
+        return max;
+    }
+}
